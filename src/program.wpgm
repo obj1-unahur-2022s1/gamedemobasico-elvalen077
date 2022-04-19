@@ -20,7 +20,7 @@ program demo {
 	}
 	)	
 	
-	keyboard.p().onPressDo ({
+	keyboard.l().onPressDo ({
 		var maiz = new Maiz(position = player.position().right(1))
 		player.agregarMaiz(maiz)
 		game.addVisual(maiz)

@@ -1,0 +1,34 @@
+import wollok.game.*
+import personajes.*
+
+program game {
+	game.height(12)
+	game.width(8)
+	game.title("Juego1")
+	game.addVisual(mario)
+	keyboard.x().onPressDo(
+		//closure: codigo largo.
+		{
+			tomaco.position(game.at(0.randomUpTo(game.width()).truncate(0), 0.randomUpTo(game.height()).truncate(0)))
+			game.addVisual(tomaco)
+		}
+	)
+	keyboard.up().onPressDo({
+		mario.moverArriba()
+	})
+	keyboard.left().onPressDo({
+		mario.moverIzquierda()
+	})
+	keyboard.right().onPressDo({
+		mario.moverDerecha()
+	})
+	keyboard.down().onPressDo({
+		mario.moverAbajo()
+	})
+	
+	keyboard.m().onPressDo({
+		game.say(mario,"Energia" + " " + mario.energia())
+	})
+	
+	game.start()
+}
